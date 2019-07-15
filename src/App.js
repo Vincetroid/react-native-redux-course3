@@ -6,6 +6,8 @@ import reducers from './reducers';
 import { Header } from './components/common';
 import LibraryList from './components/LibraryList';
 
+console.disableYellowBox = true;
+
 const App = () => {
     return(
         <Provider store={createStore(reducers)}>
