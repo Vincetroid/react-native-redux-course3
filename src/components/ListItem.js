@@ -7,12 +7,15 @@ import * as actions from '../actions';
 class ListItem extends Component {
 
     renderDescription() {
+        console.log('this.props')
         console.log(this.props)
         const { library, selectedLibraryId } = this.props;
 
+        console.log('library')
         console.log(library)
+        console.log('selectedLibraryId')
         console.log(selectedLibraryId)
-        if (library.id === selectedLibraryId) {
+        if (library.item.id === selectedLibraryId) {
             console.log('funciona')
             return (
                 <Text>{library.item.description}</Text>
@@ -26,7 +29,7 @@ class ListItem extends Component {
 
         return (
             <TouchableWithoutFeedback 
-                onPress={() => this.props.selectLibrary(id)}
+                onPress={() => console.log(this.props.selectLibrary(id))}
             >
                 <View>
                     <CardSection>
@@ -50,7 +53,7 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-    return { selectLibraryId: state.selectedLibraryId };
+    return { selectedLibraryId: state.selectedLibraryId };
 };
 
 export default connect(mapStateToProps, actions)(ListItem);
